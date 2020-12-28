@@ -32,3 +32,8 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# img
+.jpg
+.png 
+.ico
