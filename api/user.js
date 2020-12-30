@@ -12,6 +12,7 @@ export async function registerApi(formData) {
     };
     const response = await fetch(url, params);
     const result = await response.json();
+    return null;
   } catch (error) {
     console.log(error);
     return null;
