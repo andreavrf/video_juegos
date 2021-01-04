@@ -1,5 +1,8 @@
 import { useState } from "react";
+
 import { loginApi } from "../../../api/user";
+import useAuth from "../../../hooks/useAuth";
+
 import { Form, Button } from "semantic-ui-react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -9,6 +12,8 @@ export default function FormLogin(props) {
   const { showResgisterForm, onCloseModal } = props;
   const [loading, setLoading] = useState(false);
 
+  const { login } = useAuth();
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -16,7 +21,7 @@ export default function FormLogin(props) {
       setLoading(true);
       const response = await loginApi(formData);
       if (response?.jwt) {
-        console.log(response);
+        login(response.jwt);
 
         onCloseModal();
       } else {
