@@ -9,7 +9,7 @@ export default function MenuWeb() {
   const [titleModal, setTitleModal] = useState("Inicia sesión");
 
   const onShowModal = () => setShowModal(true);
-  const onCloseModal = () => setCloseModal(false);
+  const onCloseModal = () => setShowModal(false);
 
   return (
     <div className="menu">
